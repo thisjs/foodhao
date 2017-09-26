@@ -1,0 +1,267 @@
+/**index.wxss**/
+
+/*
+ 模块标题
+*/
+.module-tit{
+  font-size: 14px;
+  padding:0 3%;
+  margin-bottom: 10px;
+}
+
+/*
+ scroll-view
+*/
+.slide-wrap{
+  white-space: nowrap;
+  border-top:1px solid #e8e8e8;
+  border-bottom:1px solid #e8e8e8;
+}
+.slide-wrap .slide-item{
+  width:134px;
+  padding:15px;
+  padding-bottom: 5px;
+  border-right:1px solid #e8e8e8;
+  display: inline-block;
+}
+/*
+ 商品图
+*/
+.slide-wrap .slide-item .img-wrap{
+  width: 100%;
+  height:134px;
+}
+.slide-wrap .slide-item .img-wrap image{
+  width:100%;
+  height: 100%;
+  display: inline-block;
+}
+
+/*
+ 商品文字
+*/
+.slide-wrap .slide-item .goods-text{
+  word-break: break-all;
+  white-space:normal;
+  font-size: 12px;
+  margin:10px 0;
+}
+
+/*
+ 商品价格
+*/
+.goods-price .new-price{
+  color: #f52f3e;
+  display: inline-block;
+  margin-right: 5px;
+}
+.goods-price .old-price{
+  color: #d1d1d1;
+  text-decoration: line-through;
+  font-size: 12px;
+  display: inline-block;
+}
+.goods-price .add-btn{
+  background:#fff;
+  border:1px solid #d1d1d1;
+  font-size:18px;
+  font-weight:bold;
+  color:#009a61;
+  border-radius:15px;
+  text-align:center;
+  width:19px;
+  height:19px;
+  line-height:16px;
+  float: right;
+}
+.goods-price .add-active{
+  border:none;
+  background:#009a61;
+  font-size:18px;
+  font-weight:bold;
+  color:#fff;
+  border-radius:15px;
+  text-align:center;
+  width:20px;
+  height:20px;
+  line-height:16px;
+  float: right;
+}
+
+.page-mask{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left:0;
+  top:0;
+  background: rgba(0,0,0,0.5);
+}
+/*
+ 吸底购物车
+*/
+.cart{
+  position: fixed;
+  bottom:0;
+  left:0;
+  width: 100%;
+  height:50px;
+  background: #fff;
+  border-top:1px solid #e8e8e8;
+  font-size: 16px;
+}
+.cart-wrap{
+  width:60px;
+  height:60px;
+  position: absolute;
+  left:0;
+  top:-10px;
+}
+.cart-wrap .cart-icon{
+  width:100%;
+  height:100%;
+  background: #d1d1d1;
+  border-radius: 50px;
+  position: relative;
+}
+.cart-wrap .cart-num{
+  background: #f52f3e;
+  color: #fff;
+  font-size: 12px;
+  position: absolute;
+  right:0;
+  top:0;
+  width:20px;
+  height:20px;
+  text-align: center;
+  line-height:20px;
+  border-radius: 10px;
+}
+.cart-wrap .active{
+  background: #009a61;
+}
+.cart-wrap .cart-icon image{
+  width:35px;
+  height:35px;
+  text-align: center;
+  display: inline-block;
+  vertical-align: middle;
+  position: absolute;
+  left:50%;
+  top:50%;
+  margin-left:-17px;
+  margin-top: -17px;
+}
+.cart .text{
+  margin-left: 70px;
+  line-height:50px;
+  display: inline-block;
+}
+.cart .text .empty-text{
+  color: #a5a5a5;
+}
+.cart .text .have-text{
+  color: #f52f3e;
+}
+.cart-btn{
+  width:35%;
+  height:100%;
+  line-height:50px;
+  text-align: center;
+  float: right;
+  display: inline-block;
+  background: #d1d1d1;
+  color: #fff;
+}
+.cart-active{
+  background: #009a61;
+}
+
+/*
+ 购物车弹出列表
+*/
+.cart-bg{
+  background: #fff;
+  position: relative;
+}
+.cart-list{
+  position: absolute;
+  width: 100%;
+  bottom:50px;
+  max-height:300px;
+  background: #fff;
+  transform: translateY(300px);
+  transition: all ease .4s;
+}
+.slide-up{
+  transform: translateY(0);
+}
+.cart-scroll{
+  max-height:300px;
+}
+.cart-list .cart-item{
+  height:80px;
+  display: flex;
+  flex-direction: row;
+}
+.cart-list .cart-item checkbox{
+  display: flex;
+  flex-direction: row;
+  margin-left: 10px;
+}
+.cart-list .cart-item .cart-img image{
+  width:60px;
+  height:60px;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+.cart-list .cart-item .cart-goods{
+  margin-left: 10px;
+  font-size: 12px;
+}
+.cart-list .cart-item .cart-goods .goods-name{
+  margin-top: 10px;
+  height:40px;
+}
+.cart-list .cart-item .cart-goods .goods-info{
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+.cart-list .cart-item .cart-goods .goods-info .goods-p{
+  float: left;
+}
+.cart-list .cart-item .cart-goods .goods-info .opt{
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  right:0;
+  top:-10px;
+}
+.cart-goods .goods-info .opt .reduce{
+  border:1px solid #d1d1d1;
+  border-radius: 15px;
+  text-align: center;
+  width:24px;
+  height:24px;
+  line-height:22px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #009a61;
+}
+.cart-goods .goods-info .opt .num{
+  font-size: 16px;
+  margin:0 10px;
+  line-height:22px;
+  margin-top: 4px;
+}
+.cart-goods .goods-info .opt .add{
+  background: #009a61;
+  font-size: 20px;
+  font-weight: bold;
+  color: #fff;
+  border-radius: 15px;
+  text-align: center;
+  width:25px;
+  height:25px;
+  line-height:22px;
+}
