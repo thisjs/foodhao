@@ -8,6 +8,7 @@ Page({
         slideUpClass:'',
         goodsList:[
             {
+                goodsId:123,
                 img: './testImg/timg.jpg',
                 info:'杂粮煎饼：白面、小米面、豆面制作',
                 newPrice: '14.5',
@@ -15,12 +16,24 @@ Page({
                 isSelect: false
             },
             {
+                goodsId:456,
                 img: './testImg/timg.jpg',
                 info:'杂粮煎饼：白面、小米面、豆面制作 +薄脆+肠',
                 newPrice: '14.5',
                 oldPrice: '24',
                 isSelect: false
             }
+        ],
+
+        addedList:[
+            /*{
+                goodsId:123,
+                img: './testImg/timg.jpg',
+                info:'杂粮煎饼：白面、小米面、豆面制作',
+                newPrice: '14.5',
+                oldPrice: '24',
+                addedNum: 1
+            }*/
         ]
     },
     tapCart(){
@@ -35,6 +48,10 @@ Page({
                 slideUpClass:'slide-up'
             });
         }
+    },
+    addGoodsAction(event){
+        const goodsId = event.currentTarget.dataset.goodsid;
+        console.info(goodsId)
     }
   /*data: {
     motto: 'Hello World',

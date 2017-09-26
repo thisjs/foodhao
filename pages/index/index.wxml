@@ -2,17 +2,17 @@
 <view class="container">
   <view class="module-tit">每日美食</view>
   <scroll-view class="slide-wrap" scroll-x="true">
-    <view class="slide-item" wx:for="{{goodsList}}" wx:for-item="">
+    <view class="slide-item" wx:for="{{goodsList}}" wx:for-item="itemName" wx:key="itemName.goodsId">
       <view class="img-wrap">
-        <image src="{{item.img}}"></image>
+        <image src="{{itemName.img}}"></image>
       </view>
       <view class="goods-text">
-        {{item.info}}
+        {{itemName.info}}
       </view>
       <view class="goods-price">
         <view class="new-price">￥14.5</view>
         <view class="old-price">￥24</view>
-        <view class="add-btn {{item.isSelect?'add-active':''}}">+</view>
+        <view bindtap="addGoodsAction" data-goodsid="{{itemName.goodsId}}" class="add-btn {{itemName.isSelect?'add-active':''}}">+</view>
       </view>
     </view>
     <!--<view class="slide-item">
@@ -136,7 +136,7 @@
     </view>
     <view class="cart-bg">
       <view class="cart-wrap">
-        <view class="cart-icon {{slideUp?'active':''}}" bindtap="tapCart">
+        <view class="cart-icon {{addedList.length?'active':''}}" bindtap="tapCart">
           <image src="./image/cart.png"></image>
         </view>
         <view class="cart-num">12</view>
