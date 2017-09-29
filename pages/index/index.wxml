@@ -41,93 +41,25 @@
     </view>-->
   </scroll-view>
   <!--页面遮罩-->
-  <view wx-if="{{slideUp}}" class="page-mask" bindtouchend="tapCart"></view>
+  <view wx:if="{{slideUp}}" class="page-mask" bindtouchend="tapCart"></view>
   <!--购物车吸底-->
   <view class="cart">
     <view class="cart-list {{slideUpClass}}">
       <view class="cart-operate"></view>
       <scroll-view scroll-y="true" class="cart-scroll">
-        <view class="cart-item">
-          <checkbox value="checkbox1"/>
+        <view wx:for="{{addedList}}" wx:for-item="listItem" wx:key="listItem.goodsId" class="cart-item">
+          <!--<checkbox value="checkbox1"/>-->
           <view class="cart-img">
-            <image src="./testImg/timg.jpg"></image>
+            <image src="{{listItem.img}}"></image>
           </view>
           <view class="cart-goods">
-            <view class="goods-name">杂粮煎饼：白面、小米面、豆面制作 +薄脆+肠</view>
+            <view class="goods-name">{{listItem.info}}</view>
             <view class="goods-info">
-              <view class="goods-p">￥10</view>
+              <view class="goods-p">￥{{listItem.newPrice * listItem.selectNum}}</view>
               <view class="opt">
-                <view class="reduce">-</view>
-                <view class="num">1</view>
-                <view class="add">+</view>
-              </view>
-            </view>
-          </view>
-        </view>
-        <view class="cart-item">
-          <checkbox value="checkbox1"/>
-          <view class="cart-img">
-            <image src="./testImg/timg.jpg"></image>
-          </view>
-          <view class="cart-goods">
-            <view class="goods-name">杂粮煎饼：白面、小米面、豆面制作 +薄脆+肠</view>
-            <view class="goods-info">
-              <view class="goods-p">￥10</view>
-              <view class="opt">
-                <view class="reduce">-</view>
-                <view class="num">1</view>
-                <view class="add">+</view>
-              </view>
-            </view>
-          </view>
-        </view>
-        <view class="cart-item">
-          <checkbox value="checkbox1"/>
-          <view class="cart-img">
-            <image src="./testImg/timg.jpg"></image>
-          </view>
-          <view class="cart-goods">
-            <view class="goods-name">杂粮煎饼：白面、小米面、豆面制作 +薄脆+肠</view>
-            <view class="goods-info">
-              <view class="goods-p">￥10</view>
-              <view class="opt">
-                <view class="reduce">-</view>
-                <view class="num">1</view>
-                <view class="add">+</view>
-              </view>
-            </view>
-          </view>
-        </view>
-        <view class="cart-item">
-          <checkbox value="checkbox1"/>
-          <view class="cart-img">
-            <image src="./testImg/timg.jpg"></image>
-          </view>
-          <view class="cart-goods">
-            <view class="goods-name">杂粮煎饼：白面、小米面、豆面制作 +薄脆+肠</view>
-            <view class="goods-info">
-              <view class="goods-p">￥10</view>
-              <view class="opt">
-                <view class="reduce">-</view>
-                <view class="num">1</view>
-                <view class="add">+</view>
-              </view>
-            </view>
-          </view>
-        </view>
-        <view class="cart-item">
-          <checkbox value="checkbox1"/>
-          <view class="cart-img">
-            <image src="./testImg/timg.jpg"></image>
-          </view>
-          <view class="cart-goods">
-            <view class="goods-name">杂粮煎饼：白面、小米面、豆面制作 +薄脆+肠</view>
-            <view class="goods-info">
-              <view class="goods-p">￥10</view>
-              <view class="opt">
-                <view class="reduce">-</view>
-                <view class="num">1</view>
-                <view class="add">+</view>
+                <view class="reduce" bindtap="changeCart" data-goodsid="{{listItem.goodsId}}" data-type="reduce">-</view>
+                <view class="num">{{listItem.selectNum}}</view>
+                <view class="add" bindtap="changeCart" data-goodsid="{{listItem.goodsId}}" data-type="add">+</view>
               </view>
             </view>
           </view>
@@ -136,16 +68,16 @@
     </view>
     <view class="cart-bg">
       <view class="cart-wrap">
-        <view class="cart-icon {{addedList.length?'active':''}}" bindtap="tapCart">
+        <view class="cart-icon {{cartGoodsNum>0?'active':''}}" bindtap="tapCart">
           <image src="./image/cart.png"></image>
         </view>
-        <view class="cart-num">12</view>
+        <view wx:if="{{cartGoodsNum>0}}" class="cart-num">{{cartGoodsNum}}</view>
       </view>
       <view class="text">
-        <view class="empty-text">购物车是空的</view>
-        <view class="have-text">￥200.00</view>
+        <view class="have-text" wx:if="{{cartPrice>0}}">￥{{cartPrice}}</view>
+        <view class="empty-text" wx:else>购物车是空的</view>
       </view>
-      <view class="cart-btn cart-active">去下单</view>
+      <view class="cart-btn {{cartGoodsNum>0?'cart-active':''}}" bindtap="toOrder">去下单</view>
     </view>
   </view>
 </view>
